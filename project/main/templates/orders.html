@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Список заказов
+{% endblock %}
+
+{% block body %}
+
+<h1>Список заказов</h1>
+
+<form method="get" action="{% url 'orders' %}">
+    <input type="text" name="query" placeholder="Поиск по номеру стола" value="{{ request.GET.query }}">
+    <select name="status">
+        <option value="">Все статусы</option>
+        <option value="waiting" {% if request.GET.status == 'waiting' %}selected{% endif %}>В ожидании</option>
+        <option value="ready" {% if request.GET.status == 'ready' %}selected{% endif %}>Готово</option>
+        <option value="paid" {% if request.GET.status == 'paid' %}selected{% endif %}>Оплачено</option>
+    </select>
+    <button type="submit">Найти</button>
+</form>
+
+<ul class="order-list">
+    {% for order in orders %}
+    <li class="order-item">
+        <h3>Заказ #{{ order.id }}</h3>
+        <p><strong>Стол:</strong> {{ order.table_number }}</p>
+        <p><strong>Блюда:</strong></p>
+        <ul>
+            {% for dish in order.items.all %}
+            <li>{{ dish.name }} - {{ dish.price }} руб.</li>
+            {% endfor %}
+        </ul>
+        <p><strong>Общая стоимость:</strong> {{ order.total_price }} руб.</p>
+        <p><strong>Статус:</strong> {{ order.get_status_display }}</p>
+
+        <form method="post" style="display: inline;">
+            {% csrf_token %}
+            <input type="hidden" name="order_id" value="{{ order.id }}">
+            <select name="status" onchange="this.form.submit()">
+                <option value="waiting" {% if order.status == 'waiting' %}selected{% endif %}>В ожидании</option>
+                <option value="ready" {% if order.status == 'ready' %}selected{% endif %}>Готово</option>
+                <option value="paid" {% if order.status == 'paid' %}selected{% endif %}>Оплачено</option>
+            </select>
+        </form>
+
+        <form method="post" action="{% url 'archive_order' order.id %}" style="display: inline;">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-warning">Архивировать</button>
+        </form>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

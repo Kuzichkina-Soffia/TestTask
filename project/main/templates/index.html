@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Cоздать заказ
+{% endblock %}
+
+{% block body %}
+
+<h1>Создать заказ</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Создать заказ</button>
+</form>
+
+<h2>Выручка за оплаченные заказы: {{ total_revenue }} руб.</h2>
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Список блюд
+{% endblock %}
+
+{% block body %}
+<h1>Список блюд</h1>
+<ul>
+    {% for dish in dishes %}
+    <li>{{ dish.name }} - {{ dish.price }} руб.<br></li>
+
+    {% endfor %}
+</ul>
+{% endblock %}

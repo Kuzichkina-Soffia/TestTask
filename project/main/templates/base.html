@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой сайт</title>
+    <!-- Подключение стилей -->
+    <link rel="stylesheet" href="{% load static %}{% static 'main/style.css' %}">
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header>
+        <h5 class="my-0 mr-md-auto font-weight-normal">Ресторан которого нет</h5>
+        <nav>
+            <a href="/">Создать заказ</a>
+            <a href="/orders">Список заказов</a>
+            <a href="/dishes">Список блюд</a>
+            <a href="/admin">административная панель</a>
+        </nav>
+    </header>
+
+    <!-- Основное содержимое -->
+    <main>
+        {% block body %}
+        {% endblock %}
+    </main>
+
+    <!-- Подвал -->
+    <footer>
+        <p>&copy; 2025 "Ресторан которого нет". Официальный сайт.</p>
+    </footer>
+</body>
+</html>

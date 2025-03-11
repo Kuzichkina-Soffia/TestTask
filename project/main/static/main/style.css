@@ -1,0 +1,105 @@
+/* Общие стили для всего документа */
+body {
+    font-family: Arial, sans-serif; /* Шрифт */
+    margin: 0; /* Убираем отступы по умолчанию */
+    padding: 0; /* Убираем отступы по умолчанию */
+    background-color: #f4f4f4; /* Светло-серый фон */
+    color: #333; /* Цвет текста */
+}
+
+/* Шапка сайта */
+header {
+    background-color: #333; /* Темный фон */
+    color: white; /* Белый текст */
+    padding: 10px 20px; /* Отступы внутри шапки */
+    display: flex; /* Гибкий контейнер */
+    justify-content: space-between; /* Распределение элементов по ширине */
+    align-items: center; /* Выравнивание по центру по вертикали */
+}
+
+/* Название сайта в шапке */
+header h5 {
+    font-size: 24px; /* Размер шрифта */
+    margin: 0; /* Убираем отступы */
+    font-weight: bold; /* Жирный шрифт */
+}
+
+/* Ссылки в шапке */
+header nav a {
+    color: white; /* Белый цвет текста */
+    text-decoration: none; /* Убираем подчеркивание */
+    margin-left: 20px; /* Отступ между ссылками */
+    font-size: 16px; /* Размер шрифта */
+}
+
+header nav a:hover {
+    /* color: #ffcc00; /* Желтый цвет при наведении */
+}
+
+/* Основное содержимое */
+main {
+    padding: 10px; /* Отступы внутри основного блока */
+    padding-bottom: 60px /* Отступ снизу, равный высоте подвала */
+}
+
+/* Стили для списка заказов */
+.order-list {
+    list-style: none; /* Убираем маркеры списка */
+}
+
+/* Стили для каждого заказа */
+.order-item {
+    background-color: #ffffff; /* Белый фон */
+    border: 1px solid #e0e0e0; /* Светлая рамка */
+    border-radius: 10px; /* Закруглённые углы */
+    padding: 30px; /* Внутренние отступы */
+    margin-bottom: 20px; /* Отступ между заказами */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень для эффекта "поднятости" */
+}
+
+/* Стили для заголовка заказа */
+.order-item h3 {
+    margin-top: 0; /* Убираем отступ сверху */
+    color: #333333; /* Тёмный цвет текста */
+    font-size: 24px; /* Размер шрифта */
+}
+
+/* Стили для списка блюд */
+.order-item ul {
+    list-style: none; /* Убираем маркеры списка */
+}
+
+.order-item ul li {
+    padding: 8px 0; /* Отступы для каждого блюда */
+    border-bottom: 1px solid #eeeeee; /* Разделительная линия между блюдами */
+    color: #555555; /* Цвет текста */
+}
+
+.order-item ul li:last-child {
+    border-bottom: none; /* Убираем линию у последнего элемента */
+}
+
+/* Стили для общей стоимости и статуса */
+.order-item p {
+    margin: 10px 0; /* Отступы */
+    font-size: 16px; /* Размер шрифта */
+    color: #444444; /* Цвет текста */
+}
+
+.order-item p strong {
+    color: #333333; /* Тёмный цвет для выделения */
+}
+
+/* Подвал сайта */
+
+footer {
+    position: fixed;
+    bottom: 0; /* Прижимаем к низу */
+    width: 100%; /* Ширина на всю страницу */
+    height: 50px; /* Высота подвала */
+    background-color: #333; /* Темный фон */
+    color: white; /* Белый текст */
+    text-align: center; /* Выравнивание по центру */
+    padding: 10px 0; /* Отступы внутри подвала */
+
+}
